@@ -1,0 +1,20 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@using Sitecon.Feature.Events
+
+<section id="Speakers">
+    <div class="container">
+        <h3 class="mb-lg-6 mb-4">@Html.Sitecore().Field(Sitecon.Feature.Events.Templates.FeaturedSpeaker.Fields.FeaturedSpeakersTitle.ToString())</h3>
+        <div class="row">
+            <div class="col-lg-3">
+                @Html.Sitecore().Field(Sitecon.Feature.Events.Templates.FeaturedSpeaker.Fields.FeaturedSpeakersText.ToString())
+            </div>
+            <div class="col-lg-9 pl-lg-6 mt-5 mt-lg-0">
+                @Html.Sitecore().Placeholder("Featured Speaker Main")
+                <div class="row">
+                    @Html.Sitecore().Placeholder("Featured Speakers")
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

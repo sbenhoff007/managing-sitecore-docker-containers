@@ -1,0 +1,16 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@using Sitecon.Feature.PageContent
+@using Sitecon.Foundation.SitecoreHelperExtensions
+@model RenderingModel
+
+@if (!string.IsNullOrEmpty(Model.Item[Sitecon.Feature.PageContent.Templates.YouTubeVideo.Fields.YouTubeVideoId.ToString()]))
+{
+    <div class="rounded-soft overflow-hidden mt-5">
+        <div class="player" data-plyr-provider="youtube" data-plyr-embed-id="@Html.Sitecore().Field(Sitecon.Feature.PageContent.Templates.YouTubeVideo.Fields.YouTubeVideoId, new { DisableWebEdit = true })"></div>
+    </div>
+}
+else if (Sitecore.Context.PageMode.IsExperienceEditor && string.IsNullOrEmpty(Model.Item[Sitecon.Feature.PageContent.Templates.YouTubeVideo.Fields.YouTubeVideoId.ToString()]))
+{
+    <span>Please enter a YouTube Video Id by clicking the edit button in the component toolbar.</span>
+}

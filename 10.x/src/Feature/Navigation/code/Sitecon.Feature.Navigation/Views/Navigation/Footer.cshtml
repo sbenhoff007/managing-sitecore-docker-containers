@@ -1,0 +1,23 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@using Sitecon.Feature.Navigation
+@model Sitecon.Feature.Navigation.Models.Footer
+
+<footer class="footer-bg-color">
+    <div class="container">
+        <div class="row fs--1 no-gutters py-4 text-center">
+            <div class="col-md-6 col-sm-auto text-md-left pl-0">
+                <p class="mb-0 text-400">
+                    @Html.Raw(Model.FooterTextLeft)
+                    <a class="text-info" href="@Model.FooterLinkUrlLeft" target="@Model.FooterLinkTargetLeft">@Model.FooterLinkTextLeft</a>
+                </p>
+            </div>
+            <div class="col-md-5 col-sm-auto text-right d-none d-sm-block ml-6 ml-md-0">
+                <p class="mb-0 text-400">
+                    @Html.Raw(Model.FooterTextRight)
+                    <a class="text-info" href="@Model.FooterLinkUrlRight" target="@Model.FooterLinkTargetRight">@Model.FooterLinkTextRight</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>

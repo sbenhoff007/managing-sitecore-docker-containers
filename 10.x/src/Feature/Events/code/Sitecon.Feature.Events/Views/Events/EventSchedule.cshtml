@@ -1,0 +1,94 @@
+﻿@using Sitecore.Mvc
+@using Sitecon.Foundation.SitecoreHelperExtensions
+@using Sitecon.Feature.Events
+@model Sitecon.Feature.Events.Models.EventSchedule
+
+<section id="Schedule">
+
+    <div class="bg-holder overlay overlay-white" style="background-image:url(@Model.EventScheduleBgImgUrl);">
+    </div>
+    <!--/.bg-holder-->
+
+    <div class="container">
+        <h3 class="mb-6">@Html.Sitecore().Field(Sitecon.Feature.Events.Templates.EventSchedule.Fields.EventScheduleTitle, Model)</h3>
+        <div class="row">
+            <div class="col-lg-3 text-uppercase">
+                <h5 class="font-weight-normal ls mb-0">@Html.Sitecore().Field(Sitecon.Feature.Events.Templates.EventSchedule.Fields.EventScheduleDay1Title, Model) @Html.Sitecore().Field(Sitecon.Feature.Events.Templates.EventSchedule.Fields.EventScheduleDay1Date, new { format = "MMMM dd" })</h5>
+                <p class="font-weight-bold">@Html.Sitecore().Field(Sitecon.Feature.Events.Templates.EventSchedule.Fields.EventScheduleDay1Location, Model)</p>
+            </div>
+            <div class="col-lg-8">
+                @foreach (var e in Model.EventScheduleDay1Events)
+                {
+                    <div class="media">
+                        <div class="time-width">@e.EventTimeString </div>
+                        <div class="dash mx-1">-</div>
+                        <div class="media-body">
+                            @if (e.IsFeaturedEvent)
+                            {
+                                <p class="font-weight-bold mb-0">@e.EventName</p>
+                            }
+                            else
+                            {
+                                <p class="mb-0">@e.EventName</p>
+                            }
+                            @if (e.EventSpeakers != null && e.EventSpeakers.Count() > 0)
+                            {
+                                <div class="row text-uppercase">
+                                    @foreach (var s in e.EventSpeakers)
+                                    {
+                                        <div class="col-md-4 col-xl-3 d-flex align-items-center mr-2">
+                                            <img class="img-schedule rounded-circle my-2" src="@s.SpeakerImageUrl" alt="speakers-image" width="50" />
+                                            <div class="col-auto">
+                                                <h6 class="fs-0 text-base text-500 font-weight-extra-bold mb-0">@s.SpeakerName</h6>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <hr class="bg-hr" />
+        <div class="row mt-4 pb-3">
+            <div class="col-lg-3 text-uppercase">
+                <h5 class="font-weight-normal ls mb-0">@Html.Sitecore().Field(Sitecon.Feature.Events.Templates.EventSchedule.Fields.EventScheduleDay2Title, Model) @Model.EventScheduleDay2Date</h5>
+                <p class="font-weight-bold">@Html.Sitecore().Field(Sitecon.Feature.Events.Templates.EventSchedule.Fields.EventScheduleDay2Location, Model)</p>
+            </div>
+            <div class="col-lg-8">
+                @foreach (var e in Model.EventScheduleDay2Events)
+                {
+                    <div class="media">
+                        <div class="time-width">@e.EventTimeString </div>
+                        <div class="dash mx-1">-</div>
+                        <div class="media-body">
+                            @if (e.IsFeaturedEvent)
+                            {
+                                <p class="font-weight-bold mb-0">@e.EventName</p>
+                            }
+                            else
+                            {
+                                <p class="mb-0">@e.EventName</p>
+                            }
+                            @if (e.EventSpeakers != null && e.EventSpeakers.Count() > 0)
+                            {
+                                <div class="row text-uppercase">
+                                    @foreach (var s in e.EventSpeakers)
+                                    {
+                                        <div class="col-md-4 col-xl-3 d-flex align-items-center mr-2">
+                                            <img class="img-schedule rounded-circle my-2" src="@s.SpeakerImageUrl" alt="speakers-image" width="50" />
+                                            <div class="col-auto">
+                                                <h6 class="fs-0 text-base text-500 font-weight-extra-bold mb-0">@s.SpeakerName</h6>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

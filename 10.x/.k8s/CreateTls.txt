@@ -1,0 +1,12 @@
+IF NOT EXIST mkcert.exe powershell Invoke-WebRequest https://github.com/FiloSottile/mkcert/releases/download/v1.4.1/mkcert-v1.4.1-windows-amd64.exe -UseBasicParsing -OutFile mkcert.exe
+mkcert -install
+del /Q /S *.crt
+del /Q /S *.key
+mkcert -cert-file k8s-sitecore-xm1\secrets\tls\global-cm\tls.crt -key-file k8s-sitecore-xm1\secrets\tls\global-cm\tls.key "cm.sitecondocker.globalhost"
+mkcert -cert-file k8s-sitecore-xm1\secrets\tls\global-id\tls.crt -key-file k8s-sitecore-xm1\secrets\tls\global-id\tls.key "id.sitecondocker.globalhost"
+mkcert -cert-file k8s-sitecore-xm1\secrets\tls\global-cd\tls.crt -key-file k8s-sitecore-xm1\secrets\tls\global-cd\tls.key "cd.sitecondocker.globalhost"
+
+mkcert -cert-file overrides\xm1\secrets\tls\global-hrz\tls.crt -key-file overrides\xm1\secrets\tls\global-hrz\tls.key "hrz.sitecondocker.globalhost"
+
+mkcert -cert-file k8s-sitecore-xm1\secrets\tls\global-cd1\tls.crt -key-file k8s-sitecore-xm1\secrets\tls\global-cd1\tls.key "cd1.sitecondocker.globalhost"
+mkcert -cert-file k8s-sitecore-xm1\secrets\tls\global-cd2\tls.crt -key-file k8s-sitecore-xm1\secrets\tls\global-cd2\tls.key "cd2.sitecondocker.globalhost"

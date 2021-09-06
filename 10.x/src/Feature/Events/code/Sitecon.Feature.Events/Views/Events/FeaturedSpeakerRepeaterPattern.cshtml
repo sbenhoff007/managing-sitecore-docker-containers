@@ -1,0 +1,48 @@
+﻿@using Sitecore.Mvc
+@using Sitecon.Foundation.SitecoreHelperExtensions
+@using Sitecon.Feature.Events
+@model Sitecon.Feature.Events.Models.Speaker
+
+<div class="col-sm-10 col-md-6 mt-5">
+    <div class="row">
+        <div class="col-5">@Html.Sitecore().Field(Sitecon.Feature.Events.Templates.Speaker.Fields.SpeakerImage, new { @class = "rounded-soft img-fluid" })</div>
+        <div class="col pl-0">
+            <h6 class="fs-0 text-uppercase text-base font-weight-extra-bold mb-0">@Html.Sitecore().Field(Sitecon.Feature.Events.Templates.Speaker.Fields.SpeakerName)</h6>
+            <p class="fs--1 text-uppercase font-weight-extra-bold text-500 mb-1">@Html.Sitecore().Field(Sitecon.Feature.Events.Templates.Speaker.Fields.SpeakerTitle)</p>
+            <div class="col pl-0">
+                @if (Sitecore.Context.PageMode.IsExperienceEditor)
+                {
+                    @Html.Sitecore().BeginField(Sitecon.Feature.Events.Templates.Speaker.Fields.SpeakerTwitterUrl.ToString(), new { @class = "text-400", DisableWebEdit = false })
+                    <i class="fab fa-twitter"></i>
+                    @Html.Sitecore().EndField()
+
+                    @Html.Sitecore().BeginField(Sitecon.Feature.Events.Templates.Speaker.Fields.SpeakerLinkedInUrl.ToString(), new { @class = "text-400", DisableWebEdit = false })
+                    <i class="fab fa-linkedin-in"></i>
+                    @Html.Sitecore().EndField()
+
+                    @Html.Sitecore().BeginField(Sitecon.Feature.Events.Templates.Speaker.Fields.SpeakerWebsiteUrl.ToString(), new { @class = "text-400", DisableWebEdit = false })
+                    <i class="fas fa-at"></i>
+                    @Html.Sitecore().EndField()
+                }
+                else
+                {
+                    if (!string.IsNullOrEmpty(Model.SpeakerTwitterUrl))
+                    {
+                        <a class="text-400" href="@Model.SpeakerTwitterUrl" target="_blank"><i class="fab fa-twitter"></i></a>
+                    }
+
+                    if (!string.IsNullOrEmpty(Model.SpeakerLinkedInUrl))
+                    {
+                        <a class="text-400 mx-2" href="@Model.SpeakerLinkedInUrl" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    }
+
+                    if (!string.IsNullOrEmpty(Model.SpeakerWebsiteUrl))
+                    {
+                        <a class="text-400" href="@Model.SpeakerWebsiteUrl" target="_blank"><i class="fas fa-at"></i></a>
+                    }
+                }
+            </div>
+            <p class="mt-2 mb-0"><i>@Html.Sitecore().Field(Sitecon.Feature.Events.Templates.Speaker.Fields.SpeakerDescription)</i></p>
+        </div>
+    </div>
+</div>

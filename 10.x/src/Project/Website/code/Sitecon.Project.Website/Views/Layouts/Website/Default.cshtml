@@ -1,0 +1,78 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Analytics.Extensions
+@using Sitecore.Mvc.Presentation
+@model RenderingModel
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>@Html.Sitecore().Field("title", new { DisableWebEdit = true })</title>
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" href="~/assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/assets/img/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="~/assets/img/favicons/favicon.ico">
+    <meta name="msapplication-TileImage" content="~/assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600,700,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700" rel="stylesheet">
+    <link href="~/assets/lib/loaders.css/loaders.min.css" rel="stylesheet">
+    <link href="~/assets/lib/flexslider/flexslider.css" rel="stylesheet">
+    <link href="~/assets/lib/plyr/plyr.css" rel="stylesheet">
+    <link href="~/assets/lib/fancybox/jquery.fancybox.min.css" rel="stylesheet">
+    <link href="~/assets/css/theme.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    @Html.Sitecore().VisitorIdentification()
+</head>
+<body id="home" data-spy="scroll" data-target="#navbar-spy" data-offset="100">
+
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main>
+
+        <div>
+            @Html.Sitecore().Placeholder("header")
+        </div>
+
+        <div>
+            @Html.Sitecore().Placeholder("main")
+        </div>
+
+    </main>
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+    <div>
+        @Html.Sitecore().Placeholder("footer")
+    </div>
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="~/assets/js/jquery.min.js"></script>
+    <script src="~/assets/js/popper.min.js"></script>
+    <script src="~/assets/js/bootstrap.js"></script>
+    <script src="~/assets/js/plugins.js"></script>
+    <script src="~/assets/lib/loaders.css/loaders.css.js"></script>
+    <script src="~/assets/lib/stickyfilljs/stickyfill.min.js"></script>
+    <script src="~/assets/lib/sticky-kit/sticky-kit.min.js"></script>
+    <script src="~/assets/lib/plyr/plyr.polyfilled.min.js"></script>
+    <script src="~/assets/lib/flexslider/jquery.flexslider-min.js"></script>
+    <script src="~/assets/lib/fancybox/jquery.fancybox.min.js"></script>
+    <script src="~/assets/js/theme.js"></script>
+
+</body>
+</html>

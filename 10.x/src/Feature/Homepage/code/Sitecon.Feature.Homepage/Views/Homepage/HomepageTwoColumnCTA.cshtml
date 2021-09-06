@@ -1,0 +1,32 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@using Sitecon.Feature.Homepage
+@using Sitecon.Foundation.SitecoreHelperExtensions
+@model RenderingModel
+
+<section id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 d-flex flex-column justify-content-between pr-md-5">
+                <div>
+                    <h4 class="mb-4">@Html.Sitecore().Field(Sitecon.Feature.Homepage.Templates.HomepageTwoColumnCTA.Fields.Column1Title)</h4>
+                    <p>@Html.Sitecore().Field(Sitecon.Feature.Homepage.Templates.HomepageTwoColumnCTA.Fields.Column1Text)</p>
+                    @Html.Sitecore().BeginField(Sitecon.Feature.Homepage.Templates.HomepageTwoColumnCTA.Fields.Column1Link.ToString(), new { @class = "font-weight-bold", DisableWebEdit = true, text = "Read more" })
+                    <span class="fas fa-chevron-right" data-fa-transform="shrink-6 down-2 right-2"></span>
+                    @Html.Sitecore().EndField()
+                </div>
+                @Html.Sitecore().Field(Sitecon.Feature.Homepage.Templates.HomepageTwoColumnCTA.Fields.Column1Image, new { @class = "rounded mt-4 img-fluid", @data_zanim_xs = "{&quot;from&quot;:{&quot;opacity&quot;:0,&quot;y&quot;:100},&quot;to&quot;:{&quot;opacity&quot;:1,&quot;y&quot;:0},&quot;duration&quot;:2}", @data_zanim_trigger = "scroll" })
+            </div>
+            <div class="col-md-6 d-flex flex-column justify-content-between mt-5 mt-md-0 pl-md-5">
+                <div>
+                    <h4 class="mb-4">@Html.Sitecore().Field(Sitecon.Feature.Homepage.Templates.HomepageTwoColumnCTA.Fields.Column2Title)</h4>
+                    <p>@Html.Sitecore().Field(Sitecon.Feature.Homepage.Templates.HomepageTwoColumnCTA.Fields.Column2Text)</p>
+                    @Html.Sitecore().BeginField(Sitecon.Feature.Homepage.Templates.HomepageTwoColumnCTA.Fields.Column2Link.ToString(), new { @class = "font-weight-bold", DisableWebEdit = false, text = "Read more" })
+                    <span class="fas fa-chevron-right" data-fa-transform="shrink-6 down-2 right-2"></span>
+                    @Html.Sitecore().EndField()
+                </div>
+                @Html.Sitecore().Field(Sitecon.Feature.Homepage.Templates.HomepageTwoColumnCTA.Fields.Column2Image, new { @class = "rounded mt-4 img-fluid", @data_zanim_xs = "{&quot;from&quot;:{&quot;opacity&quot;:0,&quot;y&quot;:100},&quot;to&quot;:{&quot;opacity&quot;:1,&quot;y&quot;:0},&quot;duration&quot;:2}", @data_zanim_trigger = "scroll" })
+            </div>
+        </div>
+    </div>
+</section>

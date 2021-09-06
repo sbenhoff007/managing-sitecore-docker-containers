@@ -1,0 +1,24 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@using Sitecon.Feature.Homepage
+@using Sitecon.Foundation.SitecoreHelperExtensions
+@model RenderingModel
+<!-- <section> begin ============================-->
+<section class="py-0 text-center text-white">
+
+    <div class="bg-holder overlay" style="background-image:url(@Html.Sitecore().GetMediaUrl(Sitecon.Feature.Homepage.Templates.HomepageHero.Fields.HomepageHeroBackgroundImage));">
+    </div>
+    <!--/.bg-holder-->
+
+    <div class="container">
+        <div class="row min-vh-100 py-6 py-md-0 flex-center">
+            <div class="col-auto">
+                <p class="font-italic fs-2 mb-3" data-zanim-xs='{"animation":"slide-left","delay":0.8,"duration":0.5}' data-zanim-trigger="scroll">@Html.Sitecore().Field(Sitecon.Feature.Homepage.Templates.HomepageHero.Fields.HomepageHeroTagline)</p>
+                <h3 class="text-uppercase text-white font-weight-bold ls-1" data-zanim-xs='{"animation":"slide-right","delay":0.6,"duration":0.5}' data-zanim-trigger="scroll">@Html.Sitecore().Field(Sitecon.Feature.Homepage.Templates.HomepageHero.Fields.HomepageHeroTitle)</h3>
+                <p class="lead text-sans-serif ls font-weight-extra-light mt-5" data-zanim-xs='{"animation":"zoom-in","delay":0.8,"duration":0.5}' data-zanim-trigger="scroll">@Html.Sitecore().Field(Sitecon.Feature.Homepage.Templates.HomepageHero.Fields.HomepageHeroSubtitle)</p>
+                <a class="btn btn-danger btn-lg mt-3" href="@Html.Sitecore().GetMediaUrl(Sitecon.Feature.Homepage.Templates.HomepageHero.Fields.HomepageHeroCTALink)" data-fancyscroll="data-fancyscroll" data-zanim-xs='{"animation":"zoom-in","delay":0.8,"duration":0.5}' data-zanim-trigger="scroll">@Html.Sitecore().Field(Sitecon.Feature.Homepage.Templates.HomepageHero.Fields.HomepageHeroCTALinkText)</a>
+                <a class="text-500 godown-arrow bounce" href="#Schedule" data-fancyscroll="data-fancyscroll" data-zanim-xs='{"animation":"slide-down","delay":0.9,"duration":1}' data-zanim-trigger="scroll"><span class="fas fa-chevron-down fa-lg"></span></a>
+            </div>
+        </div>
+    </div>
+</section>

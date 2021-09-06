@@ -1,0 +1,28 @@
+*****************************
+***Commands to add Horizon***
+*****************************
+
+kubectl apply -k ./overrides/xm1/ingress -n sitecore
+
+kubectl create -k ./overrides/xm1/secrets -n sitecore
+
+********************************
+***Delete mssql and solr jobs***
+********************************
+
+kubectl delete jobs -n sitecore --all
+
+***********************************************
+***Delete cm and id services and deployments***
+***********************************************
+
+kubectl delete service -n sitecore cm
+kubectl delete service -n sitecore id
+kubectl delete deploy -n sitecore cm
+kubectl delete deploy -n sitecore id
+
+************************
+***Recreate cm and id***
+************************
+
+kubectl apply -k ./overrides/xm1 -n sitecore

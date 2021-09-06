@@ -1,0 +1,28 @@
+﻿@using Sitecore.Mvc
+@using Sitecon.Feature.Events
+@model Sitecon.Feature.Events.Models.Event
+
+@foreach (var speaker in Model.EventSpeakers)
+{
+    <div class="bg-light rounded overflow-hidden">
+        <div class="row flex-center">
+            <div class="col-lg-12 col-md-4"><img class="img-fluid" src="@speaker.SpeakerImageUrl" alt="@speaker.SpeakerImageAlt"></div>
+            <div class="col p-4 text-lg-center">
+                <h5 class="text-dark">@speaker.SpeakerName</h5>
+                <p class="text-secondary mt-2">@speaker.SpeakerDescription</p>
+                @if (!string.IsNullOrEmpty(speaker.SpeakerTwitterUrl))
+                {
+                    <a class="text-400 fs-1" href="@speaker.SpeakerTwitterUrl" target="_blank"><i class="fab fa-twitter"></i></a>
+                }
+                @if (!string.IsNullOrEmpty(speaker.SpeakerLinkedInUrl))
+                {
+                    <a class="text-400 fs-1 mx-3" href="@speaker.SpeakerLinkedInUrl" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                }
+                @if (!string.IsNullOrEmpty(speaker.SpeakerWebsiteUrl))
+                {
+                    <a class="text-400 fs-1 mx-1" href="@speaker.SpeakerWebsiteUrl" target="_blank"><i class="fas fa-at"></i></a>
+                }
+            </div>
+        </div>
+    </div>
+}

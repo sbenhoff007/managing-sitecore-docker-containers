@@ -1,0 +1,7 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@using Sitecon.Feature.PageContent
+@using Sitecon.Foundation.SitecoreHelperExtensions
+
+<h4 class="text-dark mt-5 mb-3">@Html.Sitecore().Field(Sitecon.Feature.PageContent.Templates.TitleAndText.Fields.ComponentTitle)</h4>
+<p>@Html.Sitecore().Field(Sitecon.Feature.PageContent.Templates.TitleAndText.Fields.ComponentText)</p>

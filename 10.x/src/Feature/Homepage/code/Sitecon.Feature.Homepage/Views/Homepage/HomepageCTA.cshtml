@@ -1,0 +1,23 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@using Sitecon.Feature.Homepage
+@using Sitecon.Foundation.SitecoreHelperExtensions
+@model RenderingModel
+
+<section>
+
+    <div class="bg-holder overlay overlay-1" style="background-image:url(@Html.Sitecore().GetMediaUrl(Sitecon.Feature.Homepage.Templates.HomepageCTA.Fields.CTABackgroundImage));">
+    </div>
+    <!--/.bg-holder-->
+
+    <div class="container">
+        <div class="row text-white justify-content-center">
+            <div class="col-xl-7 col-lg-9 text-center">
+                <h3 class="mb-3 ls text-white fs-md-2 fs-lg-3">@Html.Sitecore().Field(Sitecon.Feature.Homepage.Templates.HomepageCTA.Fields.CTATitle)</h3>
+                <p class="lead font-weight-light text-400">@Html.Sitecore().Field(Sitecon.Feature.Homepage.Templates.HomepageCTA.Fields.CTAText)</p>
+                @Html.Sitecore().BeginField(Sitecon.Feature.Homepage.Templates.HomepageCTA.Fields.CTALink.ToString(), new { @class = "btn btn-lg btn-danger rounded-capsule mt-4", @data_fancyscroll = "data-fancyscroll", DisableWebEdit = false })
+                @Html.Sitecore().EndField()
+            </div>
+        </div>
+    </div>
+</section> 

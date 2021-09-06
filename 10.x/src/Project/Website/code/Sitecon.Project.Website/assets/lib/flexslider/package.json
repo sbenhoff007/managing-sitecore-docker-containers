@@ -1,0 +1,57 @@
+{
+  "_from": "flexslider@^2.7.2",
+  "_id": "flexslider@2.7.2",
+  "_inBundle": false,
+  "_integrity": "sha512-ayzD+g+zYPG+sM+LXyXbfm4gS4unLB0PGsjwIu03TeRNZ+JLQTtbV3J42VO9ooRZ9idmuWgR5s3r4hw6shS1tQ==",
+  "_location": "/flexslider",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "flexslider@^2.7.2",
+    "name": "flexslider",
+    "escapedName": "flexslider",
+    "rawSpec": "^2.7.2",
+    "saveSpec": null,
+    "fetchSpec": "^2.7.2"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/flexslider/-/flexslider-2.7.2.tgz",
+  "_shasum": "c0f4d36559b86feb8a3bc7d6a5abb9aa01bcf909",
+  "_spec": "flexslider@^2.7.2",
+  "_where": "C:\\Themewagon\\Conference",
+  "author": {
+    "name": "Automattic",
+    "email": "jeff@woothemes.com"
+  },
+  "bugs": {
+    "url": "https://github.com/woocommerce/FlexSlider/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "jquery": ">=1.11.3"
+  },
+  "deprecated": false,
+  "description": "An awesome, fully responsive jQuery slider toolkit.",
+  "homepage": "https://github.com/woocommerce/FlexSlider#readme",
+  "keywords": [
+    "flexslider",
+    "jquery",
+    "slider",
+    "woocommerce",
+    "automattic"
+  ],
+  "license": "GPL-2.0",
+  "main": "jquery.flexslider.js",
+  "name": "flexslider",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/woothemes/FlexSlider.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "2.7.2"
+}

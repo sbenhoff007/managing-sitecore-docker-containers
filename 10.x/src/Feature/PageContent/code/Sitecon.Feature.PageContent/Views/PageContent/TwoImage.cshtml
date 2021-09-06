@@ -1,0 +1,9 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@using Sitecon.Feature.PageContent
+@using Sitecon.Foundation.SitecoreHelperExtensions
+
+<div class="row mt-4">
+    <div class="col-6">@Html.Sitecore().Field(Sitecon.Feature.PageContent.Templates.TwoImage.Fields.Image1, new { @class = "img-fluid rounded-soft" })</div>
+    <div class="col-6">@Html.Sitecore().Field(Sitecon.Feature.PageContent.Templates.TwoImage.Fields.Image2, new { @class = "img-fluid rounded-soft" })</div>
+</div>

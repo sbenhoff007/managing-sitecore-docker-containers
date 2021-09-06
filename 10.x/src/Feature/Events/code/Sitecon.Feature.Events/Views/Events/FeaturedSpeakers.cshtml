@@ -1,0 +1,79 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@using Sitecon.Feature.Events
+@model Sitecon.Feature.Events.Models.FeaturedSpeakers
+
+<section id="Speakers">
+
+    <div class="container">
+        <h3 class="mb-lg-6 mb-4">@Html.Sitecore().Field(Sitecon.Feature.Events.Templates.FeaturedSpeaker.Fields.FeaturedSpeakersTitle.ToString(), Model)</h3>
+        <div class="row">
+            <div class="col-lg-3">
+                @Html.Sitecore().Field(Sitecon.Feature.Events.Templates.FeaturedSpeaker.Fields.FeaturedSpeakersText.ToString(), Model)
+            </div>
+            <div class="col-lg-9 pl-lg-6 mt-5 mt-lg-0">
+                @if (Model.FeaturedSpeaker != null)
+                {
+                    <div class="row">
+                        <div class="col-12 col-md-5"><img class="rounded-soft img-fluid" src="@Model.FeaturedSpeaker.SpeakerImageUrl" alt="@Model.FeaturedSpeaker.SpeakerImageAlt" /></div>
+                        <div class="col pl-md-0 mt-1 mt-md-0">
+                            <h5 class="text-uppercase text-base font-weight-extra-bold mb-0 mt-1 mt-lg-0">@Model.FeaturedSpeaker.SpeakerName</h5>
+                            <p class="fs-0 text-uppercase font-weight-extra-bold text-500 mb-1">@Model.FeaturedSpeaker.SpeakerTitle</p>
+                            <div class="col pl-0 fs-0">
+                                @if (!string.IsNullOrEmpty(Model.FeaturedSpeaker.SpeakerTwitterUrl))
+                                {
+                                    <a class="text-400" href="@Model.FeaturedSpeaker.SpeakerTwitterUrl" target="_blank"><span class="fab fa-twitter"></span></a>
+                                }
+
+                                @if (!string.IsNullOrEmpty(Model.FeaturedSpeaker.SpeakerLinkedInUrl))
+                                {
+                                    <a class="mx-2 text-400" href="@Model.FeaturedSpeaker.SpeakerLinkedInUrl" target="_blank"><span class="fab fa-linkedin-in"></span></a>
+                                }
+
+                                @if (!string.IsNullOrEmpty(Model.FeaturedSpeaker.SpeakerWebsiteUrl))
+                                {
+                                    <a class="mx-2 text-400" href="@Model.FeaturedSpeaker.SpeakerWebsiteUrl" target="_blank"><span class="fas fa-at"></span></a>
+                                }
+                            </div>
+                            <p class="mt-2 text-lowercase font-italic mb-0">@Model.FeaturedSpeaker.SpeakerDescription</p>
+                        </div>
+                    </div>
+                }
+                @if (Model.FeaturedSpeakersList != null)
+                {
+                    <div class="row">
+                        @foreach (var speaker in Model.FeaturedSpeakersList)
+                        {
+                            <div class="col-sm-10 col-md-6 mt-5">
+                                <div class="row">
+                                    <div class="col-5"><img class="rounded-soft img-fluid" src="@speaker.SpeakerImageUrl" alt="@speaker.SpeakerImageAlt" /></div>
+                                    <div class="col pl-0">
+                                        <h6 class="fs-0 text-uppercase text-base font-weight-extra-bold mb-0">@speaker.SpeakerName</h6>
+                                        <p class="fs--1 text-uppercase font-weight-extra-bold text-500 mb-1">@speaker.SpeakerTitle</p>
+                                        <div class="col pl-0">
+                                            @if (!string.IsNullOrEmpty(speaker.SpeakerTwitterUrl))
+                                            {
+                                                <a class="text-400" href="@speaker.SpeakerTwitterUrl" target="_blank"><i class="fab fa-twitter"></i></a>
+                                            }
+
+                                            @if (!string.IsNullOrEmpty(speaker.SpeakerLinkedInUrl))
+                                            {
+                                                <a class="text-400 mx-2" href="@speaker.SpeakerLinkedInUrl" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                                            }
+
+                                            @if (!string.IsNullOrEmpty(speaker.SpeakerWebsiteUrl))
+                                            {
+                                                <a class="text-400" href="@speaker.SpeakerWebsiteUrl" target="_blank"><i class="fas fa-at"></i></a>
+                                            }
+                                        </div>
+                                        <p class="mt-2 mb-0"><i>@speaker.SpeakerDescription</i></p>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1">
+  <system.webServer>
+    <httpProtocol>
+      <customHeaders>
+        <add name="SiteconDocker" xdt:Locator="Match(name)" value="Role transform" xdt:Transform="SetAttributes(value)" />
+      </customHeaders>
+    </httpProtocol>
+  </system.webServer>
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly xdt:Transform="Replace" xdt:Locator="Condition(asmv1:assemblyIdentity/@name='System.Web.Mvc')">
+        <assemblyIdentity name="System.Web.Mvc" publicKeyToken="31bf3856ad364e35" xmlns="urn:schemas-microsoft-com:asm.v1" />
+        <bindingRedirect oldVersion="0.0.0.0-5.2.7.0" newVersion="5.2.7.0" xmlns="urn:schemas-microsoft-com:asm.v1" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+</configuration>

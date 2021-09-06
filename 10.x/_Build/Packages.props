@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PlatformVersion>10.1.0</PlatformVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- <PackageReference Update="Sitecore.XConnect" Version="$(PlatformVersion)" />
+    <PackageReference Update="Sitecore.XConnect.Client" Version="$(PlatformVersion)" />
+    <PackageReference Update="Sitecore.XConnect.Collection.Model" Version="$(PlatformVersion)" />
+    <PackageReference Update="Sitecore.Assemblies.Platform" Version="$(PlatformVersion)" />
+    <PackageReference Update="Sitecore.Assemblies.XConnect.Web" Version="$(PlatformVersion)" /> -->
+    <PackageReference Include="Sitecore.Kernel" Version="$(PlatformVersion)" />
+    <PackageReference Include="Sitecore.Mvc" Version="$(PlatformVersion)" />
+    <PackageReference Include="Sitecore.Mvc.Analytics" Version="$(PlatformVersion)" />
+
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.7" />
+    <PackageReference Include="Microsoft.AspNet.Razor" Version="3.2.7" />
+    <PackageReference Include="Microsoft.AspNet.Webpages" Version="3.2.7" />
+    <PackageReference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform" Version="2.0.1" />
+    <PackageReference Include="Microsoft.web.Infrastructure" Version="1.0.0" />
+  </ItemGroup>
+</Project>

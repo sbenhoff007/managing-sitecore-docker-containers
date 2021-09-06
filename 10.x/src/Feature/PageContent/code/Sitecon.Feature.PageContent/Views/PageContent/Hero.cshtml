@@ -1,0 +1,27 @@
+﻿@using Sitecore.Mvc
+@using Sitecon.Feature.PageContent
+@using Sitecon.Foundation.SitecoreHelperExtensions
+
+@{
+    var heroImageOptions = new Sitecore.Links.UrlBuilders.MediaUrlBuilderOptions
+    {
+        MaxHeight = 600,
+        MaxWidth = 1280
+    };
+}
+
+<section class="py-8 py-lg-11 text-white">
+
+    <div class="bg-holder overlay overlay-0" style="background-image:url(@Html.Sitecore().GetMediaUrl(Sitecon.Feature.PageContent.Templates.Hero.Fields.HeroBackgroundImage, heroImageOptions));">
+    </div>
+    <!--/.bg-holder-->
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h3 class="text-white">@Html.Sitecore().Field(Sitecon.Feature.PageContent.Templates.Hero.Fields.HeroTitle)</h3>
+                <P class="fs-1">[@Html.Sitecore().Field(Sitecon.Feature.PageContent.Templates.Hero.Fields.HeroSubtitle)]</P>
+            </div>
+        </div>
+    </div>
+</section>

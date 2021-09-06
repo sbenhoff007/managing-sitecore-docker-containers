@@ -1,0 +1,101 @@
+This file contains the commands used for setting up AKS.
+
+******************************
+***SETTING UP AN AKS CLUSTER**
+******************************
+
+**********************************************************************
+***First, set your azure account subscription to your subscription.***
+**********************************************************************
+
+az login
+az account set --subscription "Your Subscription"
+
+*********************************************************
+***Get the compatible version of K8s for your location***
+*********************************************************
+
+az aks get-versions --location YOUR_LOCATION --output table
+
+*****************************
+***Add a service principal***
+*****************************
+
+az ad sp create-for-rbac --skip-assignment --name myAKSClusterServicePrincipal
+
+*************************************************
+***Create an AKS instance with the K8s version***
+*************************************************
+
+az aks create --resource-group $ResourceGroup `
+     --name $AksName `
+     --kubernetes-version $aksVersion `
+     --location $Region `
+     --windows-admin-password $AzureWindowsPassword `
+     --windows-admin-username azureuser `
+     --vm-set-type VirtualMachineScaleSets `
+     --node-count 2 `
+     --generate-ssh-keys `
+     --network-plugin azure `
+     --enable-addons monitoring `
+     --nodepool-name 'linux' `
+     --service-principal [appId] `
+     --client-secret '[password]'
+	 
+**********************************************************************	 
+***Obtain the external IP address of the ingress controller service***
+**********************************************************************
+
+kubectl --namespace ingress-basic get services -o wide -w nginx-ingress-ingress-nginx-controller
+
+*********************
+***Log into an ACR***
+*********************
+
+az acr login --name [myacr].azurecr.io
+
+************************
+***Tag a Docker image***
+************************
+
+docker tag [imagename]:[imagetag] [myacr].azurecr.io/[folder]/[imagename]
+
+*****************************
+***Push an image to an ACR***
+*****************************
+
+docker push [myacr].azurecr.io/[folder]/[imagename]
+
+*******************************
+***Pull an image from an ACR***
+*******************************
+
+docker pull [myacr].azurecr.io/[folder]/[imagename]
+
+*********************************
+***Delete an image from an ACR***
+*********************************
+
+az acr repository delete --name [myacr] --image [folder]/[imagename]:[imagetag]
+
+**********************************************************
+***Delete existing deployments and services for cd & cm***
+**********************************************************
+
+kubectl delete deploy -n sitecore cd
+kubectl delete deploy -n sitecore cm
+
+kubectl delete service -n sitecore cd
+kubectl delete service -n sitecore cm
+
+*********************************
+***Recreate cm & cd explicitly***
+*********************************
+
+kubectl create -k ./k8s-sitecore-xm1/cm.yaml -n sitecore
+
+***********************
+***Get Sitecore Logs***
+***********************
+
+kubectl logs [pod name] -n [namespace] --tail [number of previous lines to show]

@@ -1,0 +1,41 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@using Sitecon.Feature.Navigation
+@model Sitecon.Feature.Navigation.Models.Header
+
+@if (!Model.IsExperienceEditor)
+{
+    <!-- ============================================-->
+    <!-- Preloader ==================================-->
+    <div class="preloader p-0" id="preloader">
+        <div class="loader d-flex flex-column align-items-center">
+            <div class="ball-scale-ripple">
+                <div></div>
+            </div>
+            <h5 class="fs-1 pr- text-light text-uppercase mb-0 mt-3">Loading</h5>
+        </div>
+    </div>
+    <!-- ============================================-->
+    <!-- End of Preloader ===========================--><a class="bottom-to-top rounded-soft" href="#top" data-fancyscroll><span class="fas fa-angle-up lg" data-fa-transform="down-2"></span></a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-0" id="top">
+        <div class="container">
+            <a class="navbar-brand ml-3 ml-md-0" href="@Model.HomeLinkUrl"><img src="@Model.ImageUrl" alt="@Model.ImageAlt" style="margin-bottom: 3px;" /></a>
+            <button class="navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse ml-2 ml-md-0" id="navbarContent">
+                <ul class="navbar-nav text-uppercase font-weight-semi-bold ml-auto" id="navbar-spy">
+                    <li class="nav-item"><a class="nav-link" href="@Model.HomeLinkUrl" data-fancyscroll="data-fancyscroll"><span class="nav-link-text"> Home</span></a></li>
+                    <li class="nav-item dropdown dropdown-menu-on-hover">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown2" href="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="nav-link-text">Events</span></a>
+                        <div class="dropdown-menu dropdown-menu-right rounded-soft" aria-labelledby="navbarDropdown2">
+                            @foreach (var e in Model.Events)
+                            {
+                                <a class="dropdown-item" href="@e.ItemUrl">@e.Item.DisplayName</a>
+                            }
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="@Model.ScheduleLinkUrl" data-fancyscroll="data-fancyscroll"> <span class="nav-link-text">Schedule</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+}
